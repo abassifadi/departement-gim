@@ -10,10 +10,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 
+/**
+ * Handles The Management Of Courses.
+ * CRUD
+ * Course Assignement
+ */
+
 class AdminModuleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of Modules.
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +30,7 @@ class AdminModuleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new Module.
      *
      * @return \Illuminate\Http\Response
      */
@@ -36,7 +42,7 @@ class AdminModuleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Module.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -52,7 +58,7 @@ class AdminModuleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Module.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -63,7 +69,7 @@ class AdminModuleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified Module.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -92,7 +98,6 @@ class AdminModuleController extends Controller
       $module->coeficient = Input::get('coeficient');
       $module->planning = Input::get('planning');
       $module->filiere_id = Input::get('filiere_id');
-      //$module->professeur_id = Input::get('professeur_id');
       $module->professeur_id = 1;
       $module->save();
       return redirect()->route('admin_module.index');

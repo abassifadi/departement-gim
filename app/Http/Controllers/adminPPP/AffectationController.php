@@ -10,6 +10,11 @@ use App\Models\PPP as PPP ;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+ * Handles Projects Assignement to students.
+ * Assignement is based on a score
+ * 
+ */
 class AffectationController extends Controller
 {
     public function affecterLesSujetsParFiliere($filiere_id){

@@ -88,12 +88,12 @@ Route::group(['middleware' => ['web']], function () {
       Route::get('/AdminPPP/Professeur/Update/{id}', array('as' => 'AdminPPP.professeur.update.get','uses' => 'adminPPP\AdminPPPProfesseurController@getUpdateProfesseur'));
       Route::post('/AdminPPP/Professeur/Update', array('as' => 'AdminPPP.professeur.update.post','uses' => 'adminPPP\AdminPPPProfesseurController@postUpdateProfesseur'));
       Route::get('/AdminPPP/ListeBinome/Rang', array('as'=>'AdminPPP.professeur.listebinomerang','uses'=>'adminPPP\AdminPPPAffectationController@obtenirRangBinome'));
-      Route::get('/AdminPPP/Critere/Examinateur/Add', array('as'=> 'adminPPP.critere.examinateur.add', 'uses' => 'adminPPP\AdminPPPChoixController@getAjouterCritereExaminateur'));
-      Route::post('/AdminPPP/Critere/Examinateur/Add', array('as'=> 'adminPPP.critere.examinateur.add.save', 'uses' => 'adminPPP\AdminPPPChoixController@postAjouterCritereExaminateur'));
-      Route::get('/AdminPPP/Critere/Examinateur', array('as'=> 'adminPPP.critere.examinateur.list', 'uses' => 'adminPPP\AdminPPPChoixController@indexCritereExaminateur'));
-      Route::post('/AdminPPP/Critere/Examinateur/Delete',array('as'=>'adminPPP.post.examinateur.delete','uses'=>'adminPPP\AdminPPPChoixController@deleteCritereExaminateur'));
-      Route::get('/AdminPPP/Critere/Examinateur/Update/{id}', array('as'=>'AdminPPP.update.examinateur.critere','uses'=>'adminPPP\AdminPPPChoixController@updateCritereExaminateur'));
-      Route::post('/AdminPPP/Critere/Update', array('as'=>'AdminPPP.update.examinateur.critere.save','uses'=>'adminPPP\AdminPPPChoixController@saveUpdateExaminateurCritere'));
+      Route::get('/AdminPPP/Critere/Examinateur/Add', array('as'=> 'adminPPP.critere.examinateur.add', 'uses' => 'adminPPP\AdminPPPCritereExaminateurController@getAjouterCritereExaminateur'));
+      Route::post('/AdminPPP/Critere/Examinateur/Add', array('as'=> 'adminPPP.critere.examinateur.add.save', 'uses' => 'adminPPP\AdminPPPCritereExaminateurController@postAjouterCritereExaminateur'));
+      Route::get('/AdminPPP/Critere/Examinateur', array('as'=> 'adminPPP.critere.examinateur.list', 'uses' => 'adminPPP\AdminPPPCritereExaminateurController@indexCritereExaminateur'));
+      Route::post('/AdminPPP/Critere/Examinateur/Delete',array('as'=>'adminPPP.post.examinateur.delete','uses'=>'adminPPP\AdminPPPCritereExaminateurController@deleteCritereExaminateur'));
+      Route::get('/AdminPPP/Critere/Examinateur/Update/{id}', array('as'=>'AdminPPP.update.examinateur.critere','uses'=>'adminPPP\AdminPPPCritereExaminateurController@updateCritereExaminateur'));
+      Route::post('/AdminPPP/Critere/Update', array('as'=>'AdminPPP.update.examinateur.critere.save','uses'=>'adminPPP\AdminPPPCritereExaminateurController@saveUpdateExaminateurCritere'));
       Route::get('/AdminPPP/Sujet/Affectation/{id}', array('as'=>'AdminPPP.sujet.affectation','uses'=>'adminPPP\AffectationController@affecterLesSujetsParFiliere'));
         Route::resource('admin_module','adminPPP\AdminModuleController') ;
   });

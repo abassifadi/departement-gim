@@ -7,17 +7,43 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Critere as Critere ;
 use App\Models\CritereExaminateur as CritereExaminateur ;
+
+/**
+ * Handles Evaluation Criteria.
+ * CRUD
+ */
+
 class AdminPPPChoixController extends Controller
 {
+  /**
+   * Returns the list of exisitng criteria.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+
     public function indexCritere() {
                $criteres = Critere::all();
        return view('admin_ppp.critere.list',compact('criteres'));
     }
 
+
+    /**
+     * Returns the form to insert new Criteria.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function getAjouterPPP(){
          return view('admin_ppp.critere.add');
     }
 
+    /**
+     * Save The Created Criteria.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function postAddCritere(Request $request){
           $critere = new Critere ;
           $critere->nom = $request->nom ;
@@ -28,6 +54,12 @@ class AdminPPPChoixController extends Controller
           return redirect()->route('adminPPP.critere.list');
     }
 
+    /**
+     * Delete a Criteria.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
   public function deleteCritere(Request $request){
 
               $critere = Critere::findOrFail($request->id);
@@ -35,12 +67,23 @@ class AdminPPPChoixController extends Controller
               return redirect()->route('adminPPP.critere.list');
   }
 
+  /**
+   * Show Form To Update criteria.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
  public function updateCritere($id){
      $critere = Critere::findOrFail($id);
      //return $critere ;
      return view('admin_ppp.critere.update',compact('critere'));
   }
-
+  /**
+   * Save All the changes.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
 public function saveUpdateCritere(Request $request){
        $critere = Critere::findOrFail($request->id);
        $critere->nom = $request->nom ;
@@ -51,48 +94,5 @@ public function saveUpdateCritere(Request $request){
        return redirect()->route('adminPPP.critere.list');
 }
 
-     //Get Add PPP
-    public function getAjouterCritereExaminateur() {
-          return view('admin_ppp.critere_examinateur.add');
-     }
-
-    //Save From Add Form
-     public function postAjouterCritereExaminateur(Request $request){
-          $critere = new CritereExaminateur ;
-          $critere->save();
-          $critere->nom = $request->nom ;
-          $critere->note_min = $request->note_min ;
-          $critere->note_max = $request->note_max;
-          $critere->coefficient = $request->coefficient ;
-          $critere->save();
-          return redirect()->route('adminPPP.critere.examinateur.list');
-     }
-
-     public function indexCritereExaminateur() {
-                $criteres = CritereExaminateur::all();
-                return view('admin_ppp.critere_examinateur.list',compact('criteres'));
-     }
-
-
-     public function deleteCritereExaminateur(Request $request){
-       $critere = CritereExaminateur::findOrFail($request->id);
-       $critere->delete();
-       return redirect()->route('adminPPP.critere.examinateur.list');
-     }
-
-     public function updateCritereExaminateur($id) {
-            $critere = CritereExaminateur::findOrFail($id);
-           return view('admin_ppp.critere_examinateur.update',compact('critere'));
-     }
-
-     public function saveUpdateExaminateurCritere(Request $request){
-       $critere = CritereExaminateur::findOrFail($request->id);
-       $critere->nom = $request->nom ;
-       $critere->note_min = $request->note_min ;
-       $critere->note_max = $request->note_max;
-       $critere->coefficient = $request->coefficient ;
-       $critere->save();
-      return redirect()->route('adminPPP.critere.examinateur.list');
-     }
-
+  
 }

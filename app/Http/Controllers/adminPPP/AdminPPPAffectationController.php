@@ -9,8 +9,17 @@ use App\Http\Controllers\Controller;
 use App\Models\Filiere as Filiere ;
 use App\Models\Binomage as Binome ;
 
+/**
+ * Handles Projects Assignement to students.
+ */
+
 class AdminPPPAffectationController extends Controller
 {
+
+    /**
+     * Order Students Groups Based On Their scores
+     * Each Sub group Contains 2 or 3 Students
+    */
     public function obtenirRangBinome() {
 
           $filieres = Filiere::all();
@@ -28,7 +37,7 @@ class AdminPPPAffectationController extends Controller
                 }
           }
 
-      return view('admin_ppp.affecter.list_ranked',compact('filieres'));  
+      return view('admin_ppp.affecter.list_ranked',compact('filieres'));
 
 
     }
