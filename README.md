@@ -1,4 +1,4 @@
-# Departement GIM Web Plateform ( Mathematics and Computing Science For National Institute Of Applied Sciences And Technology of Tunis )
+# Departement GIM Web Plateform ( Mathematics and Computer Science Departement of the National Institute Of Applied Sciences And Technology of Tunis )
 
 . The Project is a Web Plateform that handles tasks in the GIM Departement including all the actors of the university's ecosystem.
 
